@@ -1,9 +1,9 @@
-interface Irobot {
+interface IRobot {
     name: string
     resetName: () => void;
 }
 
-export class Robot implements Irobot {
+export class Robot implements IRobot {
     name: string;
     static usedNames = new Set<string>()
     static releaseNames() {
@@ -11,9 +11,7 @@ export class Robot implements Irobot {
     }
     constructor() {
         this.name = this.uniuqueRandomName
-
     }
-
     resetName() {
         this.name = this.uniuqueRandomName
     }
@@ -37,11 +35,10 @@ export class Robot implements Irobot {
     }
 
     private get letter() {
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXXYZ"
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         const randomNumber = Math.floor(Math.random() * 26)
         return letters[randomNumber]
     }
-
     private get randomDigits() {
         return `${this.randomNumber0to999}${this.randomNumber0to999}${this.randomNumber0to999}`
     }
